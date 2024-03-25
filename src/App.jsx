@@ -4,7 +4,7 @@
   import Modal from './components/Modal'
   function App() {
     const subtitle = "Events coming up for U!"
-    const [showModal, setShowModal] = useState(true)
+    const [showModal, setShowModal] = useState(false)
     const [showEvents, setShowEvents] = useState(true)
   const [events, setEvents] = useState([
     {title: "mario's birthday bash", id: 1},
@@ -47,6 +47,9 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error odit nam et reprehenderit quibusdam temporibus officia dolorum quo sint nemo quis, laborum, quasi nisi fugit praesentium debitis repudiandae! Sapiente, omnis.</p>
         <a href="#">find out more...</a>
         </Modal>) }
+        <div>
+        <button onClick={() => setShowModal(true)}>Show Modal</button>
+      </div>
     </div>
   );
 }
