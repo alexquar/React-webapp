@@ -1,17 +1,17 @@
 import '../index.css';
 
 
-function Title() {
+function Title({title,subtitle}) {
 
 
 
 
     return (
-        <div>
-          <h1 className="title"> U events </h1>  
+        <>
+          <h1 className="title"> {title} </h1>  
           <br />
-          <h2 className="subtitle"> All the latest events for U!</h2>
-        </div>
+          <h2 className="subtitle"> {subtitle}</h2>
+        </>
     )
 }
 
