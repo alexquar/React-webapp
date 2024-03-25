@@ -4,6 +4,7 @@
   import Modal from './components/Modal'
   function App() {
     const subtitle = "Events coming up for U!"
+    const [showModal, setShowModal] = useState(true)
     const [showEvents, setShowEvents] = useState(true)
   const [events, setEvents] = useState([
     {title: "mario's birthday bash", id: 1},
@@ -15,6 +16,10 @@
     setEvents(prevEvents => {
       return prevEvents.filter(event => id !== event.id)
     })
+  }
+
+  const handleClose= () => {
+    setShowModal(false)
   }
 
   return (
@@ -37,11 +42,11 @@
           <button onClick={() => handleClick(event.id)}>delete event</button>
         </ React.Fragment>
       ))}
-       <Modal>
+      { showModal && (<Modal handleClose={handleClose}>
        <h2>Terms and Conditions</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error odit nam et reprehenderit quibusdam temporibus officia dolorum quo sint nemo quis, laborum, quasi nisi fugit praesentium debitis repudiandae! Sapiente, omnis.</p>
         <a href="#">find out more...</a>
-        </Modal>
+        </Modal>) }
     </div>
   );
 }
