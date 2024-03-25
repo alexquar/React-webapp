@@ -48,7 +48,7 @@
         <a href="#">find out more...</a>
         </Modal>) }
         <div>
-        <button onClick={() => setShowModal(true)}>Show Modal</button>
+        <button onClick={() => setShowModal(true)}>Show Terms/Conditions</button>
       </div>
     </div>
   );
