@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+  import {useState} from 'react'
+  import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React and firebase
-        </a>
-      </header>
-    </div>
-  );
-}
+  function App() {
+  const [name, setName] = useState('mario')
 
-export default App;
+    const handleClick = () => {
+          setName('luigi')   
+    }
+
+    return (
+      <div className="App">
+      <h1> {name}</h1>
+      <button onClick={handleClick}>Change Name </button>
+      </div>
+    );
+  }
+
+  export default App;
