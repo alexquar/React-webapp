@@ -1,7 +1,8 @@
-  import React, {useState} from 'react'
+  import {useState} from 'react'
   import './App.css';
   import Title from './components/Title'
   import Modal from './components/Modal'
+  import EventList from './components/EventList'
   function App() {
     const subtitle = "Events coming up for U!"
     const [showModal, setShowModal] = useState(false)
@@ -36,12 +37,8 @@
           <button onClick={() => setShowEvents(true)}>Show Events</button>
         </div>
       )}
-      {showEvents && events.map((event, index) => (
-        <React.Fragment key={event.id}>
-          <h2>{index} - {event.title}</h2>
-          <button onClick={() => handleClick(event.id)}>delete event</button>
-        </ React.Fragment>
-      ))}
+      {showEvents && <EventList events={events} handleClick={handleClick} />}
+
       { showModal && (<Modal handleClose={handleClose}>
        <h2>Terms and Conditions</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error odit nam et reprehenderit quibusdam temporibus officia dolorum quo sint nemo quis, laborum, quasi nisi fugit praesentium debitis repudiandae! Sapiente, omnis.</p>
