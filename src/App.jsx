@@ -1,12 +1,13 @@
-  import {useState} from 'react'
-  import './App.css';
-  import Title from './components/Title'
-  import Modal from './components/Modal'
-  import EventList from './components/EventList'
-  function App() {
-    const subtitle = "Events coming up for U!"
-    const [showModal, setShowModal] = useState(false)
-    const [showEvents, setShowEvents] = useState(true)
+import './App.css'
+import React, { useState } from 'react'
+import Title from './components/Title'
+import Modal from './components/Modal'
+import EventList from './components/EventList'
+import NewEventForm from './components/newEventForm'
+
+function App() {
+  const [showModal, setShowModal] = useState(false)
+  const [showEvents, setShowEvents] = useState(true)
   const [events, setEvents] = useState([
     {title: "mario's birthday bash", id: 1},
     {title: "bowser's live stream", id: 2},
@@ -19,14 +20,16 @@
     })
   }
 
-  const handleClose= () => {
+  const handleClose = () => {
     setShowModal(false)
   }
 
+  const subtitle = "All the latest events in Marioland"
+
   return (
     <div className="App">
-     
-      <Title title="U events" subtitle = {subtitle} />
+      <Title title="Marioland Events" subtitle={subtitle} />
+      
       {showEvents && (
         <div>
           <button onClick={() => setShowEvents(false)}>Hide Events</button>
@@ -38,17 +41,18 @@
         </div>
       )}
       {showEvents && <EventList events={events} handleClick={handleClick} />}
+      
+      {showModal && (
+        <Modal handleClose={handleClose}>
+          <NewEventForm />
+        </Modal>
+      )}
 
-      { showModal && (<Modal handleClose={handleClose} isSalesModal={true}>
-       <h2>Terms and Conditions</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error odit nam et reprehenderit quibusdam temporibus officia dolorum quo sint nemo quis, laborum, quasi nisi fugit praesentium debitis repudiandae! Sapiente, omnis.</p>
-        <a href="#">find out more...</a>
-        </Modal>) }
-        <div>
-        <button onClick={() => setShowModal(true)}>Show Terms/Conditions</button>
+      <div>
+        <button onClick={() => setShowModal(true)}>Add New Event</button>
       </div>
     </div>
   );
 }
 
-  export default App;
+export default App;
