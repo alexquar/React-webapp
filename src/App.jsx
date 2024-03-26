@@ -9,10 +9,16 @@ function App() {
   const [showModal, setShowModal] = useState(false)
   const [showEvents, setShowEvents] = useState(true)
   const [events, setEvents] = useState([
-    {title: "mario's birthday bash", id: 1},
-    {title: "bowser's live stream", id: 2},
-    {title: "race on moo moo farm", id: 3}
+
   ])
+
+
+  const addEvent = (event) => {
+    setEvents(prevEvents => {
+      return [...prevEvents, event]  
+    })
+    handleClose()
+  }
 
   const handleClick = (id) => {
     setEvents(prevEvents => {
@@ -44,7 +50,7 @@ function App() {
       
       {showModal && (
         <Modal handleClose={handleClose}>
-          <NewEventForm />
+          <NewEventForm addEvent={addEvent}/>
         </Modal>
       )}
 
