@@ -20,11 +20,11 @@ export default function NewEventForm() {
   return (
     <form className="new-event-form" onSubmit={handleSubmit}>
       <label>
-        <span> Event Title:</span>
+        <span> Event Title: </span>
       <input type="text" onChange={(e)=> setTitle(e.target.value)} value={title}/>
       </label>
       <label>
-        <span> Event Date:</span>
+        <span> Event Date: </span>
       <input type="date" onChange={ (e)=> setDate(e.target.value)} value={date}/>
       </label>
      <button>Submit</button>
