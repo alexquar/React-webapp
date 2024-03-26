@@ -1,9 +1,9 @@
 import './App.css'
+import NewEventForm from './components/NewEventForm'
 import React, { useState } from 'react'
 import Title from './components/Title'
 import Modal from './components/Modal'
 import EventList from './components/EventList'
-import NewEventForm from './components/newEventForm'
 
 function App() {
   const [showModal, setShowModal] = useState(false)
@@ -24,11 +24,11 @@ function App() {
     setShowModal(false)
   }
 
-  const subtitle = "All the latest events in Marioland"
+  const subtitle = "All the latest events for U"
 
   return (
     <div className="App">
-      <Title title="Marioland Events" subtitle={subtitle} />
+      <Title title="U Events" subtitle={subtitle} />
       
       {showEvents && (
         <div>
